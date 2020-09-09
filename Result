@@ -1,0 +1,90 @@
+In this code we will take data for 5 students and then display it one by one we will also ask number of subject appeared by students and then addd the marks record accordingly
+and then display students data, Toatl Marks obtained and Average marks of the Student
+
+
+
+import java.util.*;
+import javax.swing.*;
+class	Result1
+{
+	int rno;
+	int []mrk;
+	Result1()
+	{
+		rno= 0;
+		mrk = null;
+	}
+	void setData(int a)
+	{
+		rno = a;
+		int nos = 0;
+		try
+		{
+			nos = Integer.parseInt(JOptionPane.showInputDialog(null,"Subject Count: "));
+		}
+		catch (Exception e)
+		{
+			nos=5;
+		}
+		mrk = new int[nos];
+		for(int i=0;i<nos ; i++)
+		{
+			try
+			{
+				mrk[i] = Integer.parseInt(JOptionPane.showInputDialog(null,"\nMarks: " + " " + ":"));
+			}
+			catch (Exception e)
+			{
+				continue ;
+			}
+		}
+	}
+	void setData()
+	{
+		try
+		{
+			rno =Integer.parseInt(JOptionPane.showInputDialog(null,"Roll.no: "));
+		}
+		catch (Exception e)
+		{
+		}
+		setData(rno);
+	}
+	int total()
+	{
+		int tot= mrk[0];
+			int n=mrk.length;
+		for(int i=1;i<n;i++)
+			tot += mrk[i];
+		return tot;
+	}
+	int avg()
+	{
+		return total()/mrk.length;
+	}
+	public String toString()
+	{
+		String a = "Roll.no: " + rno + "\nMarks: " + Arrays.toString(mrk) + "\nTotal: " + total() + "\nAverage: " + avg();
+		return a;
+	}
+	void display()
+	{
+		JOptionPane.showMessageDialog(null,toString());
+	}
+	public static void main(String [] args)
+	{
+		Result1 a = new Result1();
+		a.setData();
+		a.display();
+		Result1 [] b =new Result1[5];
+		int i=0;
+		while(i<5)
+		{
+			b[i] = new Result1();
+			b[i].setData(i+1);
+			i++;
+		}
+		for(i=0;i<5;i++)
+			b[i].display();
+	}
+}
