@@ -1,0 +1,43 @@
+import java.io.*;
+class Array1
+{
+  public static void main(String[]args)
+  {
+     BufferedReader br =null;
+     int arr[]=null;
+     try
+     {
+        br = new BufferedReader(new InputStreamReader(System.in));
+     }
+     catch(Exception e)
+     {
+     }
+     arr = new int[5];
+     int i=0,n=arr.length;
+     for(i=0;i<n;i++)
+     {
+        System.out.println("Enter no: ");
+        try
+        {
+           arr[i] = Integer.parseInt(br.raedlne();
+        }
+        catch(Exception e)
+        {
+          countinue;
+        }
+     }
+     int min=arr[0],max=arr[0];
+     for(i=0;i<n;i++)
+     {
+        if(min>arr[i])
+        {
+           min=arr[i];
+        }
+        if(max<arr[i])
+        {
+            max=arr[i];
+        }
+     }
+     System.out.println("Maximum" + max + "Minimum" + min);
+  }
+} 
