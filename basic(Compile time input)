@@ -1,0 +1,93 @@
+As we all know about the various input methods in java in this file we will first talk about compile time input. This type of iput is not very comfortable as giving input while
+compiling will confuse us.But we still need to know all kind of input System so we will talk about in thhis file
+code 1
+
+
+class CmdArg1
+{
+	public static void main(String[ ]args)
+	{
+		if(args.length == 0)
+		{
+			System.out.println("Invalid Arguments");
+			return;
+		}
+		int i=0,n=args.length;
+		while(i<n)
+		{
+			System.out.println(args[i]);
+			i++;
+		}
+	}
+}
+
+save this file 
+compile the code with:-  javac filename.java
+and for execution:-  java filename have a nice day
+
+code 2
+
+class CmdArg2
+{
+	public static void main(String[ ]args)
+	{
+		int n = args.length , i=1 , no=0;
+		if(n != 1)
+		{
+			System.out.print("Invalid input");
+			return;
+		}
+		try
+		{
+			no = Integer.parseInt(args[0]);
+		}
+		catch(Exception e)
+		{
+			System.out.print("Invaild Data format");
+			return;
+		}
+		String s = "Table\n";
+		while(i<=10)
+		{
+			s= s + " " + (no * i);
+			i++;
+		}
+		System.out.println(s);
+	}
+}	
+
+save the file
+compile with:-  javac filename.java
+execution :-  java filename  6(enter a number)
+
+
+code 3
+
+
+class CmdArg3
+{
+	public static void main(String[ ]args)
+	{
+		int a=0,b=0,n=args.length;
+		if(n != 2)
+		{
+			System.out.print("Invalid input");
+			return;
+		}
+		try
+		{
+			a = Integer.parseInt(args[0]);
+			b = Integer.parseInt(args[1]);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Invalid data format");
+			return;
+		}
+		System.out.println("Max: " +Math.max(a,b));
+	}
+}
+
+save the file
+compile with:-  javac filename.java
+execution :-  java filename  6 7(enter two numbers with a space)
