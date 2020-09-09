@@ -1,0 +1,25 @@
+//this code is to draw a patter using star and it helps us to clear the basics of java 
+
+*
+**
+***
+****
+*****
+
+
+class Pattern2
+{
+	public static void main(String[ ]args)
+	{
+		int i=1,j;
+		String a = "Patter\n";
+		while(i<=5)
+		{
+			for(j=1;j<=i;j++)
+				a=a+"*";
+			a=a+"\n";
+			i++;
+		}
+		System.out.println(a);
+	}
+}
