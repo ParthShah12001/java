@@ -1,0 +1,60 @@
+import java.io.*;
+import javax.swing.*;
+class  Stack1
+{
+	public static void main(String[] args) 
+	{
+		int top = -1;
+		int [] arr = new int[5];
+		int val=0 , opt=0;
+		String [] choice = new String[]{"push","pop","display","Peek","exit"};
+		while(true)
+		{
+			opt = JOptionPane.showOptionDialog(null,"choose Option","Stack",JOptionPane.YES_NO_OPTION,JOptionPane.PLAIN_MESSAGE,null,choice,0);
+			if(opt == 4)
+				break;
+			switch(opt)
+			{
+				case 0:
+					if(top == arr.length-1)
+					{
+						JOptionPane.showMessageDialog(null,"overflow");
+						continue;
+					}
+					try
+					{
+						val = Integer.parseInt(JOptionPane.showInputDialog(null,"Data"));
+					}
+					catch (Exception e)
+					{
+					}
+					arr[++top] = val;
+					break;
+				case 1:
+					if(top == -1)
+						JOptionPane.showMessageDialog(null,"underflow");
+					else
+						top--;
+					break;
+				case 2:
+					String s = "Stack";
+				  if(top == -1)
+					  s = s + "Empty";
+			  	else
+			  	{
+				  	for(int i=top ; i >= 0 ; i--)
+					  	s = s + " " + arr[i];
+				  }
+          break;
+          case 3:
+            if(arr.empty())
+						JOptionPane.showMessageDialog(null,"Underflow");
+					else
+						JOptionPane.showMessageDialog(null,"top Element" + arr.peek());
+					break;
+				JOptionPane.showMessageDialog(null,s);
+			}
+		}
+	}
+}
+
