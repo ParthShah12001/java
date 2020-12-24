@@ -1,0 +1,107 @@
+package com.company;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MainFrame extends JFrame{
+    public static void main(String[] args){
+        new MainFrame().setVisible(true);
+    }
+    public MainFrame(){
+        super("AIRLINE RESERVATION SYSTEM");
+        initialize();
+    }
+
+    private void initialize(){
+        setForeground(Color.CYAN);
+        setLayout(null);
+
+        //image
+        JLabel NewLabel = new JLabel("");
+        NewLabel.setIcon(new ImageIcon("front.jpg"));
+        NewLabel.setBounds(0,0,1340,690);
+        add(NewLabel);
+
+        JLabel AirlineManagementSystem = new JLabel("AIR INDIA WELCOMES YOU!");
+        AirlineManagementSystem.setForeground(Color.BLUE);
+        AirlineManagementSystem.setFont(new Font("BOLD",Font.PLAIN,36));
+        AirlineManagementSystem.setBounds(400,60,1000,55);
+        NewLabel.add(AirlineManagementSystem);
+
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+
+        JMenu AirlineSystem = new JMenu("AIRLINE SYSTEM");
+        AirlineSystem.setForeground(Color.BLUE);
+        menuBar.add(AirlineSystem);
+
+        JMenuItem FlightDetails = new JMenuItem("FLIGHT_INFO");
+        AirlineSystem.add(FlightDetails);
+
+        JMenuItem ReservationDetails = new JMenuItem("ADD_CUSTOMER_DETAILS");
+        AirlineSystem.add(ReservationDetails);
+
+        JMenuItem PassengerDetails = new JMenuItem("JOURNEY_DETAILS");
+        AirlineSystem.add(PassengerDetails);
+
+        JMenuItem SectorDetails_1 = new JMenuItem("PAYMENT_DETAILS");
+        AirlineSystem.add(SectorDetails_1);
+
+        JMenuItem Cancellation = new JMenuItem("CANCELLATION");
+        AirlineSystem.add(Cancellation);
+
+        JMenuItem Ticket = new JMenuItem("TICKET");
+        Ticket.setForeground(Color.RED);
+        menuBar.add(Ticket);
+
+        JMenuItem SP = new JMenuItem("Special offers");
+        SP.setForeground(Color.RED);
+        menuBar.add(SP);
+
+        FlightDetails.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                new Flight_info();
+            }
+        });
+        ReservationDetails.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                try{
+                    new Add_customer();
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        PassengerDetails.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                try{
+                    new Journey_details();
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        SectorDetails_1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                try{
+                    new Payment_details();
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        Cancellation.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                new Cancel();
+            }
+        });
+
+        setSize(2000,1090);
+        setVisible(true);
+
+    }
+
+}
+
